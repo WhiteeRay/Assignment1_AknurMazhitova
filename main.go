@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/WhiteeRay/Assignment1/Bank"
-	"github.com/WhiteeRay/Assignment1/Company"
-	"github.com/WhiteeRay/Assignment1/Library"
-	"github.com/WhiteeRay/Assignment1/Shapes"
+	"github.com/WhiteeRay/Assignment1/bank"
+	"github.com/WhiteeRay/Assignment1/company"
+	"github.com/WhiteeRay/Assignment1/library"
+	"github.com/WhiteeRay/Assignment1/shapes"
 )
 
 func main() {
