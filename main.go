@@ -69,17 +69,17 @@ func runLibrarySystem() {
 	fmt.Println("STARTING LIBRARY MANAGEMENT SYSTEM")
 	fmt.Println(strings.Repeat("=", 70))
 
-	library := library.NewLibrary("Central Public Library")
+	lib := library.NewLibrary("Astana Central Library")
 
-	library.AddBook("B001", "The-Go-Programming-Language", "Alan-Donovan")
-	library.AddBook("B002", "Clean-Code", "Robert-Martin")
-	library.AddBook("B003", "Design-Patterns", "Gang-of-Four")
-	library.AddBook("B004", "Introduction-to-Algorithms", "Thomas-Cormen")
-	library.AddBook("B005", "The-Pragmatic-Programmer", "Andy-Hunt")
+	lib.AddBook("B001", "Go Programming Language", "Alan Donovan")
+	lib.AddBook("B002", "Clean Code", "Robert Martin")
+	lib.AddBook("B003", "Design Patterns", "Gang of Four")
+	lib.AddBook("B004", "Introduction to Algorithms", "Thomas Cormen")
+	lib.AddBook("B005", "The Pragmatic Programmer", "Andy Hunt")
 
 	fmt.Println("Library initialized with 5 sample books")
 
-	ui := library.NewLibraryUI(library)
+	ui := library.NewLibraryUI(lib)
 	ui.ShowMenu()
 }
 
@@ -100,26 +100,26 @@ func runCompanySystem() {
 	fmt.Println("STARTING EMPLOYEE MANAGEMENT SYSTEM")
 	fmt.Println(strings.Repeat("=", 70))
 
-	company := company.NewCompany("TechCorp International")
+	comp := company.NewCompany("TechCorp Kazakhstan")
 
-	fullTime1 := company.NewFullTimeEmployee(1001, "Alice-Johnson", "Engineering", 5500.00)
-	company.AddEmployee(fullTime1)
+	fullTime1 := comp.NewFullTimeEmployee(1001, "Aisha Zhumabekova", "Engineering", 550000.0)
+	comp.AddEmployee(fullTime1)
 
-	fullTime2 := company.NewFullTimeEmployee(1002, "Bob-Smith", "Marketing", 4800.00)
-	company.AddEmployee(fullTime2)
+	fullTime2 := comp.NewFullTimeEmployee(1002, "Bek Nursultan", "Marketing", 480000.0)
+	comp.AddEmployee(fullTime2)
 
-	fullTime3 := company.NewFullTimeEmployee(1003, "Carol-Davis", "Finance", 5200.00)
-	company.AddEmployee(fullTime3)
+	fullTime3 := comp.NewFullTimeEmployee(1003, "Karol Dosanov", "Finance", 520000.0)
+	comp.AddEmployee(fullTime3)
 
-	partTime1 := company.NewPartTimeEmployee(2001, "David-Wilson", 28.00, 20.0)
-	company.AddEmployee(partTime1)
+	partTime1 := comp.NewPartTimeEmployee(2001, "David Ermekov", 28000.0, 20.0)
+	comp.AddEmployee(partTime1)
 
-	partTime2 := company.NewPartTimeEmployee(2002, "Emma-Brown", 25.00, 15.0)
-	company.AddEmployee(partTime2)
+	partTime2 := comp.NewPartTimeEmployee(2002, "Emma Bekzhanova", 25000.0, 15.0)
+	comp.AddEmployee(partTime2)
 
 	fmt.Println("Company initialized with 3 full-time and 2 part-time employees")
 
-	ui := company.NewCompanyUI(company)
+	ui := company.NewCompanyUI(comp)
 	ui.ShowMenu()
 }
 
@@ -128,16 +128,16 @@ func runBankSystem() {
 	fmt.Println("STARTING BANK ACCOUNT SIMULATION")
 	fmt.Println(strings.Repeat("=", 70))
 
-	account := bank.NewBankAccount("ACC-2024-001", "John-Doe", 1000.00)
+	account := bank.NewBankAccount("ACC-2025-001", "Zhanar Nurmaganbetova", 1000000.0)
 
-	fmt.Println("Bank account created with initial deposit of $1000.00")
+	fmt.Println("Bank account created with initial deposit of 1,000,000₸")
 
 	processor := bank.NewTransactionProcessor(account)
 
 	sampleTransactions := []bank.TransactionRequest{
-		{Type: "deposit", Amount: 500.00},
-		{Type: "withdraw", Amount: 200.00},
-		{Type: "deposit", Amount: 150.00},
+		{Type: "deposit", Amount: 500000.0},
+		{Type: "withdraw", Amount: 200000.0},
+		{Type: "deposit", Amount: 150000.0},
 	}
 
 	processor.ProcessTransactions(sampleTransactions)
