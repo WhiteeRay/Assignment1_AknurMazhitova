@@ -102,19 +102,19 @@ func runCompanySystem() {
 
 	comp := company.NewCompany("TechCorp Kazakhstan")
 
-	fullTime1 := comp.NewFullTimeEmployee(1001, "Aisha Zhumabekova", "Engineering", 550000.0)
+	fullTime1 := company.NewFullTimeEmployee(1001, "Aisha Zhumabekova", "Engineering", 550000.0)
 	comp.AddEmployee(fullTime1)
 
-	fullTime2 := comp.NewFullTimeEmployee(1002, "Bek Nursultan", "Marketing", 480000.0)
+	fullTime2 := company.NewFullTimeEmployee(1002, "Bek Nursultan", "Marketing", 480000.0)
 	comp.AddEmployee(fullTime2)
 
-	fullTime3 := comp.NewFullTimeEmployee(1003, "Karol Dosanov", "Finance", 520000.0)
+	fullTime3 := company.NewFullTimeEmployee(1003, "Karol Dosanov", "Finance", 520000.0)
 	comp.AddEmployee(fullTime3)
 
-	partTime1 := comp.NewPartTimeEmployee(2001, "David Ermekov", 28000.0, 20.0)
+	partTime1 := company.NewPartTimeEmployee(2001, "David Ermekov", 28000.0, 20.0)
 	comp.AddEmployee(partTime1)
 
-	partTime2 := comp.NewPartTimeEmployee(2002, "Emma Bekzhanova", 25000.0, 15.0)
+	partTime2 := company.NewPartTimeEmployee(2002, "Emma Bekzhanova", 25000.0, 15.0)
 	comp.AddEmployee(partTime2)
 
 	fmt.Println("Company initialized with 3 full-time and 2 part-time employees")
