@@ -1,4 +1,4 @@
-package Library
+package library
 
 type Book struct {
 	ID         string
