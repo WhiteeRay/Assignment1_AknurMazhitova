@@ -1,3 +1,3 @@
-module github.com/AknurMazhitova/Assignment1
+module github.com/WhiteeRay/Assignment1
 
-go 1.22
+go 1.24.4
