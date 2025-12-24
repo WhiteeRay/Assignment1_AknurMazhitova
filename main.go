@@ -8,6 +8,7 @@ import (
 	"github.com/WhiteeRay/Assignment1/company"
 	"github.com/WhiteeRay/Assignment1/library"
 	"github.com/WhiteeRay/Assignment1/shapes"
+	"github.com/WhiteeRay/Assignment1/parking"
 )
 
 func main() {
@@ -42,7 +43,8 @@ func displayMainMenu() {
 	fmt.Println("2. Shapes & Interfaces Demonstration")
 	fmt.Println("3. Employee Management System")
 	fmt.Println("4. Bank Account Simulation")
-	fmt.Println("5. Exit Application")
+	fmt.Println("5. Car ParkingLot")
+	fmt.Println("6. Exit Application")
 	fmt.Println(strings.Repeat("-", 70))
 }
 
@@ -57,6 +59,8 @@ func handleMainMenuChoice(choice int) bool {
 	case 4:
 		runBankSystem()
 	case 5:
+		runCarSystem()
+	case 6:
 		return false
 	default:
 		fmt.Println("Invalid choice. Please select 1-5.")
@@ -152,4 +156,95 @@ func displayGoodbye() {
 	fmt.Println("Goodbye!")
 	fmt.Println(strings.Repeat("=", 70))
 	fmt.Println()
+}
+
+func runCarSystem() {
+	lot := ParkingLot.NewParkingLot()
+
+	
+	lot.ParkCar(ParkingLot.Car{Plate: "123ABC", Owner: "Ali", HoursParked: 3})
+	lot.ParkCar(ParkingLot.Car{Plate: "777XYZ", Owner: "Dana", HoursParked: 1})
+
+	rate := 500
+
+	for {
+		fmt.Println("\n1. Park Car")
+		fmt.Println("2. Unpark Car")
+		fmt.Println("3. Update Hours")
+		fmt.Println("4. List Cars")
+		fmt.Println("5. Show Bills")
+		fmt.Println("6. Exit")
+		fmt.Print("Choose option: ")
+
+		var choice int
+		fmt.Scan(&choice)
+
+		switch choice {
+		case 1:
+			var plate, owner string
+			var hours int
+
+			fmt.Print("Plate: ")
+			fmt.Scan(&plate)
+			fmt.Print("Owner: ")
+			fmt.Scan(&owner)
+			fmt.Print("Hours: ")
+			fmt.Scan(&hours)
+
+			err := lot.ParkCar(ParkingLot.Car{
+				Plate: plate,
+				Owner: owner,
+				HoursParked: hours,
+			})
+			if err != nil {
+				fmt.Println("Error:", err)
+			}
+
+		case 2:
+			var plate string
+			fmt.Print("Plate: ")
+			fmt.Scan(&plate)
+
+			car, err := lot.UnparkCar(plate)
+			if err != nil {
+				fmt.Println("Error:", err)
+			} else {
+				fmt.Println("Unparked:", car.Plate)
+			}
+
+		case 3:
+			var plate string
+			var hours int
+
+			fmt.Print("Plate: ")
+			fmt.Scan(&plate)
+			fmt.Print("New hours: ")
+			fmt.Scan(&hours)
+
+			err := lot.UpdateHours(plate, hours)
+			if err != nil {
+				fmt.Println("Error:", err)
+			}
+
+		case 4:
+			cars := lot.ListCars()
+			for _, car := range cars {
+				fmt.Printf("Plate: %s | Owner: %s | Hours: %d\n",
+					car.Plate, car.Owner, car.HoursParked)
+			}
+
+		case 5:
+			bills := lot.Bills(rate)
+			for plate, cost := range bills {
+				fmt.Printf("%s → %d\n", plate, cost)
+			}
+
+		case 6:
+			fmt.Println("Goodbye (parking lot is closed)")
+			return
+
+		default:
+			fmt.Println("Invalid option")
+		}
+	}
 }
