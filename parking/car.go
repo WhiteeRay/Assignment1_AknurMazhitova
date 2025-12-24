@@ -3,22 +3,20 @@ package ParkingLot
 import "errors"
 
 type Car struct {
-	Plate        string
-	Owner        string
-	HoursParked  int
+	Plate       string
+	Owner       string
+	HoursParked int
 }
 
 type ParkingLot struct {
 	Cars map[string]Car
 }
 
-
 func NewParkingLot() *ParkingLot {
 	return &ParkingLot{
 		Cars: make(map[string]Car),
 	}
 }
-
 
 func (p *ParkingLot) ParkCar(car Car) error {
 	if car.Plate == "" {
@@ -35,7 +33,6 @@ func (p *ParkingLot) ParkCar(car Car) error {
 	return nil
 }
 
-
 func (p *ParkingLot) UnparkCar(plate string) (Car, error) {
 	car, exists := p.Cars[plate]
 	if !exists {
@@ -45,7 +42,6 @@ func (p *ParkingLot) UnparkCar(plate string) (Car, error) {
 	delete(p.Cars, plate)
 	return car, nil
 }
-
 
 func (p *ParkingLot) UpdateHours(plate string, hours int) error {
 	if hours < 0 {
@@ -69,7 +65,6 @@ func (p *ParkingLot) ListCars() []Car {
 	}
 	return cars
 }
-
 
 func (p *ParkingLot) Bills(ratePerHour int) map[string]int {
 	bills := make(map[string]int)
