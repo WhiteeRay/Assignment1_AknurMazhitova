@@ -34,7 +34,7 @@ func(p* ParkingLot)ParkCar(car Car) error{
 	return nil
 }
 
-func (p *ParkingLot)UnparkCar(plate string)(Car,error){
+func (p *ParkingLot)UnParkCar(plate string)(Car,error){
 	car,exists := p.Cars[plate]
 	if !exists{
 		return Car{}, errors.New("Car must exist")

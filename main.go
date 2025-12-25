@@ -7,8 +7,8 @@ import (
 	"github.com/WhiteeRay/Assignment1/bank"
 	"github.com/WhiteeRay/Assignment1/company"
 	"github.com/WhiteeRay/Assignment1/library"
-	"github.com/WhiteeRay/Assignment1/shapes"
 	"github.com/WhiteeRay/Assignment1/parking2"
+	"github.com/WhiteeRay/Assignment1/shapes"
 )
 
 func main() {
