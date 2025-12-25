@@ -13,7 +13,7 @@ type ParkingLot struct{
 	Cars map[string]Car;
 }
 
-func NewparkingLot() *ParkingLot{
+func NewParkingLot() *ParkingLot{
 	return &ParkingLot{
 		Cars:make(map[string]Car),
 	}
